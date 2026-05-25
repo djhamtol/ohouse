@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const mainView = {
     writeBtn() {
-
+        
     },
 
     popularkeyword() {
