@@ -6,21 +6,147 @@
     <link rel="icon" href="images/favicon.ico" />
     <link rel="apple-touch-icon" href="images/favicon.ico" />
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/util.css">
+    <!-- Pretendard Variable font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <!-- Noto Sans KR font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- library -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+    <!-- my -->
+    <link rel="stylesheet" href="css/setup.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
 </head>
 <body>
     <div id="wrap">
         <header>
-
+            <div class="hd-top">
+                <div class="top-container hd-container">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="images/ohouse-horizontal.svg" alt="오늘의 집 로고">
+                        </a>
+                    </h1>
+                    <nav id="gnb">
+                        <ul>
+                            <li class="active"><a href="#">집구경</a></li>
+                            <li><a href="#">쇼핑</a></li>
+                            <li><a href="#">인테리어/생활</a></li>
+                        </ul>
+                    </nav>
+                    <div class="layout">
+                        <div class="search-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                            <input type="search" placeholder="통합검색">
+                        </div>
+                        <a href="#" class="cart" aria-label="장바구니 페이지 링크 버튼">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                            </svg>
+                        </a>
+                        <div class="util-wrap">
+                            <div class="util">
+                                <ul>
+                                    <li><a href="#">로그인</a></li>
+                                    <li><a href="#">회원가입</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="write">
+                                <span>글쓰기</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480" class="css-19b3058">
+                                    <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hd-bottom">
+                <div class="bottom-container hd-container">
+                    <nav id="lnb">
+                        <ul>
+                            <li class="active"><a href="#">홈</a></li>
+                            <li><a href="#">추천</a></li>
+                            <li><a href="#">집들이</a></li>
+                            <li><a href="#">집사진</a></li>
+                            <li><a href="#">인기</a></li>
+                            <li><a href="#">쇼핑수다</a></li>
+                            <li><a href="#">집꾸미기</a></li>
+                            <li><a href="#">이사정보</a></li>
+                            <li><a href="#">오집소식</a></li>
+                            <li><a href="#">취미/일상</a></li>
+                            <li><a href="#">3D인테리어</a></li>
+                        </ul>
+                    </nav>
+                    <div class="popular-keyword">
+                        <div class="keyword-view">
+                            <ol class="rank-list">
+                                <li>
+                                    <span class="rank">1</span>
+                                    <span class="keyword">바이너리샵</span>
+                                </li>
+                                <li>
+                                    <span class="rank">2</span>
+                                    <span class="keyword">침대 틈새 선반</span>
+                                </li>
+                                <li>
+                                    <span class="rank">3</span>
+                                    <span class="keyword">템바보드수납장</span>
+                                </li>
+                                <li>
+                                    <span class="rank">4</span>
+                                    <span class="keyword">잭슨카멜레온</span>
+                                </li>
+                                <li>
+                                    <span class="rank">5</span>
+                                    <span class="keyword">약정리함</span>
+                                </li>
+                                <li>
+                                    <span class="rank">6</span>
+                                    <span class="keyword">창틀선반</span>
+                                </li>
+                                <li>
+                                    <span class="rank">7</span>
+                                    <span class="keyword">비비엔다</span>
+                                </li>
+                                <li>
+                                    <span class="rank">8</span>
+                                    <span class="keyword">좌식 테이블</span>
+                                </li>
+                                <li>
+                                    <span class="rank">9</span>
+                                    <span class="keyword">베베앙물티슈</span>
+                                </li>
+                                <li>
+                                    <span class="rank">10</span>
+                                    <span class="keyword">무아스디스펜서</span>
+                                </li>
+                                <li>
+                                    <span class="rank">1</span>
+                                    <span class="keyword">바이너리샵</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <button type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480">
+                                <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </header>
         <main>
 
         </main>
         <footer>
-            
+
         </footer>
     </div>
 </body>
