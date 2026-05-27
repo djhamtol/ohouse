@@ -30,7 +30,7 @@ body {
 	min-height: 100vh;
 	background-color: var(--bg-primary);
 	font-family: "Pretendard Variable", "Noto Sans KR", sans-serif;
-	font-size: 1rem;
+	font-size: 16px;
 	color: var(--color-primary);
 	line-height: 1.5;
 	letter-spacing: -0.3px;
