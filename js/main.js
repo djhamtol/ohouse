@@ -63,26 +63,32 @@ const mainView = {
         const rollingList = document.querySelector('.keyword-rolling-view .rank-list');
         const items = document.querySelectorAll('.keyword-rolling-view .rank-list li');
 
+        if (!items.length) return;
+
         const itemHeight = items[0].offsetHeight;
 
         let index = 0;
 
-        setInterval(() => {
-            index++;
+        gsap.to({}, {
+            repeat: -1,
+            repeatDelay: 2,
 
-            gsap.to(rollingList, {
-                y: -(index * itemHeight),
-                duration: 0.4,
+            onRepeat: () => {
+                index++;
 
-                onComplete: () => {
-                    // 마지막이면 리셋
-                    if (index === (items.length - 1)) {
-                        gsap.set(rollingList, { y: 0 });
-                        index = 0;
+                gsap.to(rollingList, {
+                    y: -(index * itemHeight),
+                    duration: 0.4,
+
+                    onComplete: () => {
+                        if (index === items.length - 1) {
+                            gsap.set(rollingList, { y: 0 });
+                            index = 0;
+                        }
                     }
-                }
-            });
-        }, 2000);
+                });
+            }
+        });
     },
 
     wholeViewBtn() {
