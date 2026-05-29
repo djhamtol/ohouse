@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    mainView.writeBtn();
-    mainView.insertRankList();
+    mainView.toggleCategory();
+    mainView.headerBottomScroll();
+    mainView.renderKeywordRankList();
     mainView.rollingKeyword();
-    mainView.wholeViewBtn();
+    mainView.toggleWholeView();
+    mainView.mainBannerSlide();
 });
 
+
 const mainView = {
-    writeBtn() {
+    toggleCategory() {
         const btn = document.querySelector('.write-btn');
         const category = document.querySelector('.write-category');
 
@@ -21,9 +24,24 @@ const mainView = {
         });
     },
 
-    insertRankList() {
-        const rollingList = document.querySelector('.keyword-rolling-view .rank-list');
-        const WholeList = document.querySelector('.keyword-whole-view .rank-list');
+    headerBottomScroll() {
+        const hdBottom = document.querySelector('.hd-bottom');
+
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+
+            hdBottom.classList.toggle('hide' , currentScroll > lastScroll);
+            
+            lastScroll = currentScroll;
+        });
+    },
+
+    // .keyword-rank-list 동적 삽입
+    renderKeywordRankList() {
+        const rollingList = document.querySelector('.keyword-rolling-view .keyword-rank-list');
+        const wholeList = document.querySelector('.keyword-whole-view .keyword-rank-list');
 
         const keywordArr = [
             '바이너리샵',
@@ -56,12 +74,12 @@ const mainView = {
             </li>
         `;
 
-        WholeList.innerHTML = innerItems;
+        wholeList.innerHTML = innerItems;
     },
 
     rollingKeyword() {
-        const rollingList = document.querySelector('.keyword-rolling-view .rank-list');
-        const items = document.querySelectorAll('.keyword-rolling-view .rank-list li');
+        const rollingList = document.querySelector('.keyword-rolling-view .keyword-rank-list');
+        const items = document.querySelectorAll('.keyword-rolling-view .keyword-rank-list li');
 
         if (!items.length) return;
 
@@ -91,7 +109,7 @@ const mainView = {
         });
     },
 
-    wholeViewBtn() {
+    toggleWholeView() {
         const btn = document.querySelector('.whole-view-btn');
         const view = document.querySelector('.keyword-whole-view');
 
@@ -103,6 +121,40 @@ const mainView = {
             if(!view.contains(e.target)&&!btn.contains(e.target)) {
                 view.classList.remove('active');
             };
+        });
+    },
+
+    mainBannerSlide() {
+        const section = document.querySelector('.main-banner-slide');
+
+        let swiper = new Swiper(".main-banner-swiper", {
+            loop: true,
+            speed: 500,
+
+            // autoplay: {
+            //     delay: 2000
+            // },
+
+            pagination: {
+                el: section.querySelector('.swiper-pagination'),
+                type: "fraction",
+
+                renderFraction(currentClass, totalClass) {
+                    return `
+                        <span class="${currentClass}"></span>
+                        <span>/</span>
+                        <span class="${totalClass}"></span>
+                        <span>+</span>
+                    `;
+                },
+            },
+
+            navigation: {
+                nextEl: section.querySelector('.swiper-button-next'),
+                prevEl: section.querySelector('.swiper-button-prev'),
+            }
+
+            
         });
     }
 

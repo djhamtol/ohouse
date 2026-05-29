@@ -15,6 +15,8 @@
 
     <!-- library -->
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
     <!-- my -->
     <link rel="stylesheet" href="css/setup.css">
@@ -25,7 +27,7 @@
     <div id="wrap">
         <header>
             <div class="hd-top">
-                <div class="top-container hd-container">
+                <div class="top-container container">
                     <h1 class="logo">
                         <a href="index.html">
                             <img src="images/ohouse-horizontal.svg" alt="오늘의 집 로고">
@@ -128,7 +130,7 @@
                 </div>
             </div>
             <div class="hd-bottom">
-                <div class="bottom-container hd-container">
+                <div class="bottom-container container">
                     <nav id="lnb">
                         <ul>
                             <li class="active"><a href="#">홈</a></li>
@@ -146,9 +148,7 @@
                     </nav>
                     <div class="popular-keyword">
                         <div class="keyword-rolling-view">
-                            <ol class="rank-list">
-                                
-                            </ol>
+                            <ol class="keyword-rank-list"></ol>
                         </div>
                         <button type="button" class="whole-view-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480">
@@ -157,16 +157,53 @@
                         </button>
                         <div class="keyword-whole-view">
                             <h2>인기 검색어</h2>
-                            <ol class="rank-list">
-
-                            </ol>
+                            <ol class="keyword-rank-list"></ol>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <main>
-
+            <div class="main-banner-wrap container">
+                <section class="main-banner-img">
+                    <a href="#">
+                        <img src="images/banner/175281545340055884.avif" alt>
+                        <div class="txt-box">
+                            <h2>해외 디자인 감성이 깃든, 감도 높은 아이템 | 왓츠인마이홈</h2>
+                            <div class="by">
+                                <img src="images/167947653745256381.avif">
+                                <span>tov.haus</span>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+                <section class="main-banner-slide">
+                    <div class="swiper main-banner-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="images/banner/v1-503102709514240.avif" alt>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="images/banner/v1-503104542752768.avif" alt>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <img src="images/banner/v1-503103874814080.avif" alt>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-wrap">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </section>
+            </div>
         </main>
         <footer>
 
