@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     mainView.toggleCategory();
-    mainView.headerBottomScroll();
+    mainView.toggleHeaderBottomScroll();
     mainView.renderKeywordRankList();
     mainView.rollingKeyword();
     mainView.toggleWholeView();
-    mainView.mainBannerSlide();
+    mainView.initMainBannerSwiper();
 });
 
 
 const mainView = {
+    // .write-category 토글
     toggleCategory() {
         const btn = document.querySelector('.write-btn');
         const category = document.querySelector('.write-category');
@@ -17,6 +18,7 @@ const mainView = {
             category.classList.toggle('active');
         });
 
+        // 배경 클릭시 닫기
         document.addEventListener('click', (e) => {
             if (!category.contains(e.target)&&!btn.contains(e.target)) {
                 category.classList.remove('active');
@@ -24,15 +26,35 @@ const mainView = {
         });
     },
 
-    headerBottomScroll() {
+    // 스크롤, 호버시 .hd-bottom 토글
+    toggleHeaderBottomScroll() {
+        const header = document.querySelector('header');
         const hdBottom = document.querySelector('.hd-bottom');
 
+        // hover
+        let isHovered = false;
+        let wasHideBeforeHover = false;
+
+        header.addEventListener('mouseenter', () => {
+            isHovered = true;
+            wasHideBeforeHover = hdBottom.classList.contains('hide');
+
+            hdBottom.classList.remove('hide');
+        });
+
+        header.addEventListener('mouseleave', () => {
+            isHovered = false;
+
+            if (wasHideBeforeHover) hdBottom.classList.add('hide');
+        });
+
+        // scroll
         let lastScroll = 0;
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.scrollY;
 
-            hdBottom.classList.toggle('hide' , currentScroll > lastScroll);
+            hdBottom.classList.toggle('hide' , currentScroll > lastScroll && !isHovered); // 스크롤 내리면 숨기기
             
             lastScroll = currentScroll;
         });
@@ -43,6 +65,7 @@ const mainView = {
         const rollingList = document.querySelector('.keyword-rolling-view .keyword-rank-list');
         const wholeList = document.querySelector('.keyword-whole-view .keyword-rank-list');
 
+        // 데이터 가공
         const keywordArr = [
             '바이너리샵',
             '침대 틈새 선반',
@@ -67,6 +90,8 @@ const mainView = {
             `;
         });
 
+        // 렌더링
+        // rollingList 렌더링
         rollingList.innerHTML = innerItems + `
             <li>
                 <span class="rank">1</span>
@@ -74,9 +99,11 @@ const mainView = {
             </li>
         `;
 
+        // wholeList 렌더링
         wholeList.innerHTML = innerItems;
     },
 
+    // 인기 검색어 루프
     rollingKeyword() {
         const rollingList = document.querySelector('.keyword-rolling-view .keyword-rank-list');
         const items = document.querySelectorAll('.keyword-rolling-view .keyword-rank-list li');
@@ -84,7 +111,6 @@ const mainView = {
         if (!items.length) return;
 
         const itemHeight = items[0].offsetHeight;
-
         let index = 0;
 
         gsap.to({}, {
@@ -109,6 +135,7 @@ const mainView = {
         });
     },
 
+    // .keyword-whole-view 토글
     toggleWholeView() {
         const btn = document.querySelector('.whole-view-btn');
         const view = document.querySelector('.keyword-whole-view');
@@ -117,6 +144,7 @@ const mainView = {
             view.classList.toggle('active');
         });
 
+        // 배경 클릭시 닫기
         document.addEventListener('click', (e) => {
             if(!view.contains(e.target)&&!btn.contains(e.target)) {
                 view.classList.remove('active');
@@ -124,16 +152,17 @@ const mainView = {
         });
     },
 
-    mainBannerSlide() {
+    // .main-banner-swiper 초기화
+    initMainBannerSwiper() {
         const section = document.querySelector('.main-banner-slide');
 
         let swiper = new Swiper(".main-banner-swiper", {
             loop: true,
             speed: 500,
 
-            // autoplay: {
-            //     delay: 2000
-            // },
+            autoplay: {
+                delay: 2000
+            },
 
             pagination: {
                 el: section.querySelector('.swiper-pagination'),
@@ -148,13 +177,10 @@ const mainView = {
                     `;
                 },
             },
-
             navigation: {
                 nextEl: section.querySelector('.swiper-button-next'),
                 prevEl: section.querySelector('.swiper-button-prev'),
             }
-
-            
         });
     }
 

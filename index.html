@@ -24,190 +24,276 @@
     <script src="js/main.js"></script>
 </head>
 <body>
-    <div id="wrap">
-        <header>
-            <div class="hd-top">
-                <div class="top-container container">
-                    <h1 class="logo">
-                        <a href="index.html">
-                            <img src="images/ohouse-horizontal.svg" alt="오늘의 집 로고">
-                        </a>
-                    </h1>
-                    <nav id="gnb">
-                        <ul>
-                            <li class="active"><a href="#">집구경</a></li>
-                            <li><a href="#">쇼핑</a></li>
-                            <li><a href="#">인테리어/생활</a></li>
-                        </ul>
-                    </nav>
-                    <div class="layout">
-                        <div class="search-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                            </svg>
-                            <input type="search" placeholder="통합검색">
+    <header>
+        <div class="hd-top">
+            <div class="top-container container-inline">
+                <h1 class="logo">
+                    <a href="index.html">
+                        <img src="images/ohouse-horizontal.svg" alt="오늘의 집 로고">
+                    </a>
+                </h1>
+                <nav id="gnb">
+                    <ul>
+                        <li class="active"><a href="#">집구경</a></li>
+                        <li><a href="#">쇼핑</a></li>
+                        <li><a href="#">인테리어/생활</a></li>
+                    </ul>
+                </nav>
+                <div class="layout">
+                    <div class="search-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <input type="search" placeholder="통합검색">
+                    </div>
+                    <a href="#" class="cart" aria-label="장바구니 페이지 링크 버튼">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                    </a>
+                    <div class="util-wrap">
+                        <div class="util">
+                            <ul>
+                                <li><a href="#">로그인</a></li>
+                                <li><a href="#">회원가입</a></li>
+                            </ul>
                         </div>
-                        <a href="#" class="cart" aria-label="장바구니 페이지 링크 버튼">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                            </svg>
-                        </a>
-                        <div class="util-wrap">
-                            <div class="util">
+                        <div class="write">
+                            <button type="button" class="write-btn">
+                                <span>글쓰기</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480" class="css-19b3058">
+                                    <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
+                                </svg>
+                            </button>
+                            <div class="write-category">
                                 <ul>
-                                    <li><a href="#">로그인</a></li>
-                                    <li><a href="#">회원가입</a></li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/photo-small-genuine-blue.svg" alt>
+                                            <div>
+                                                <strong>사진/동영상</strong>
+                                                <p>우리 집의 공간과 나의 일상을 기록해보세요.</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/pencil-line-small-coral-red.svg" alt>
+                                            <div>
+                                                <strong>커뮤니티</strong>
+                                                <p>쇼핑 고민부터 일상 이야기까지 함께 나눠보세요.</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/magnifying-glass-house-small-genuine-blue.svg" alt>
+                                            <div>
+                                                <strong>집들이</strong>
+                                                <p>집에 관한 이야기를 글로 작성해보세요.</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/ellipsis-bubble-small-jade-green.svg" alt>
+                                            <div>
+                                                <strong>노하우</strong>
+                                                <p>다양한 인테리어 노하우를 공유해주세요.</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/star-small-mango-orange.svg" alt>
+                                            <div>
+                                                <strong>리뷰</strong>
+                                                <p>상품 리뷰를 작성하고 포인트도 받아보세요.</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/star-house-small-dark-blue.svg" alt>
+                                            <div>
+                                                <strong>인테리어시공 리뷰</strong>
+                                                <p>시공 리뷰를 작성하고 포인트도 받아보세요.</p>
+                                            </div>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="write">
-                                <button type="button" class="write-btn">
-                                    <span>글쓰기</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480" class="css-19b3058">
-                                        <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
-                                    </svg>
-                                </button>
-                                <div class="write-category">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <img src="images/photo-small-genuine-blue.svg" alt>
-                                                <div>
-                                                    <strong>사진/동영상</strong>
-                                                    <p>우리 집의 공간과 나의 일상을 기록해보세요.</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="images/pencil-line-small-coral-red.svg" alt>
-                                                <div>
-                                                    <strong>커뮤니티</strong>
-                                                    <p>쇼핑 고민부터 일상 이야기까지 함께 나눠보세요.</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="images/magnifying-glass-house-small-genuine-blue.svg" alt>
-                                                <div>
-                                                    <strong>집들이</strong>
-                                                    <p>집에 관한 이야기를 글로 작성해보세요.</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="images/ellipsis-bubble-small-jade-green.svg" alt>
-                                                <div>
-                                                    <strong>노하우</strong>
-                                                    <p>다양한 인테리어 노하우를 공유해주세요.</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="images/star-small-mango-orange.svg" alt>
-                                                <div>
-                                                    <strong>리뷰</strong>
-                                                    <p>상품 리뷰를 작성하고 포인트도 받아보세요.</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="images/star-house-small-dark-blue.svg" alt>
-                                                <div>
-                                                    <strong>인테리어시공 리뷰</strong>
-                                                    <p>시공 리뷰를 작성하고 포인트도 받아보세요.</p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="hd-bottom">
-                <div class="bottom-container container">
-                    <nav id="lnb">
-                        <ul>
-                            <li class="active"><a href="#">홈</a></li>
-                            <li><a href="#">추천</a></li>
-                            <li><a href="#">집들이</a></li>
-                            <li><a href="#">집사진</a></li>
-                            <li><a href="#">인기</a></li>
-                            <li><a href="#">쇼핑수다</a></li>
-                            <li><a href="#">집꾸미기</a></li>
-                            <li><a href="#">이사정보</a></li>
-                            <li><a href="#">오집소식</a></li>
-                            <li><a href="#">취미/일상</a></li>
-                            <li><a href="#">3D인테리어</a></li>
-                        </ul>
-                    </nav>
-                    <div class="popular-keyword">
-                        <div class="keyword-rolling-view">
-                            <ol class="keyword-rank-list"></ol>
-                        </div>
-                        <button type="button" class="whole-view-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480">
-                                <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
-                            </svg>
-                        </button>
-                        <div class="keyword-whole-view">
-                            <h2>인기 검색어</h2>
-                            <ol class="keyword-rank-list"></ol>
-                        </div>
+        </div>
+        <div class="hd-bottom">
+            <div class="bottom-container container-inline">
+                <nav id="lnb">
+                    <ul>
+                        <li class="active"><a href="#">홈</a></li>
+                        <li><a href="#">추천</a></li>
+                        <li><a href="#">집들이</a></li>
+                        <li><a href="#">집사진</a></li>
+                        <li><a href="#">인기</a></li>
+                        <li><a href="#">쇼핑수다</a></li>
+                        <li><a href="#">집꾸미기</a></li>
+                        <li><a href="#">이사정보</a></li>
+                        <li><a href="#">오집소식</a></li>
+                        <li><a href="#">취미/일상</a></li>
+                        <li><a href="#">3D인테리어</a></li>
+                    </ul>
+                </nav>
+                <div class="popular-keyword">
+                    <div class="keyword-rolling-view">
+                        <ol class="keyword-rank-list"></ol>
+                    </div>
+                    <button type="button" class="whole-view-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480">
+                            <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
+                        </svg>
+                    </button>
+                    <div class="keyword-whole-view">
+                        <h2>인기 검색어</h2>
+                        <ol class="keyword-rank-list"></ol>
                     </div>
                 </div>
             </div>
-        </header>
-        <main>
-            <div class="main-banner-wrap container">
-                <section class="main-banner-img">
-                    <a href="#">
-                        <img src="images/banner/175281545340055884.avif" alt>
-                        <div class="txt-box">
-                            <h2>해외 디자인 감성이 깃든, 감도 높은 아이템 | 왓츠인마이홈</h2>
-                            <div class="by">
-                                <img src="images/167947653745256381.avif">
-                                <span>tov.haus</span>
-                            </div>
-                        </div>
-                    </a>
-                </section>
-                <section class="main-banner-slide">
-                    <div class="swiper main-banner-swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="images/banner/v1-503102709514240.avif" alt>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="images/banner/v1-503104542752768.avif" alt>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="images/banner/v1-503103874814080.avif" alt>
-                                </a>
-                            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-banner-wrap container-inline">
+            <section class="main-banner-img">
+                <a href="#">
+                    <img src="images/banner/175281545340055884.avif" alt>
+                    <div class="txt-box">
+                        <h2>해외 디자인 감성이 깃든, 감도 높은 아이템 | 왓츠인마이홈</h2>
+                        <div class="by">
+                            <img src="images/167947653745256381.avif">
+                            <span>tov.haus</span>
                         </div>
                     </div>
-                    <div class="swiper-button-wrap">
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                </a>
+            </section>
+            <section class="main-banner-slide">
+                <h2 class="sr-only">메인 슬라이드 배너</h2>
+                <div class="swiper main-banner-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="images/banner/v1-503102709514240.avif" alt>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="images/banner/v1-503104542752768.avif" alt>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="images/banner/v1-503103874814080.avif" alt>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="images/banner/v1-503087831072896.avif" alt>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="images/banner/v1-503087982129216.avif" alt>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="images/banner/173708947490207999.avif" alt>
+                            </a>
+                        </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                </section>
+                </div>
+                <div class="swiper-button-wrap">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </section>
+        </div>
+        <div class="container-inline container-block-m">
+            <nav class="local-nav">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-497834904215552.png">
+                            <span>쇼핑하기</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-432362057166912.png">
+                            <span>오늘의딜</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-425277651230720.png">
+                            <span>집들이</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-425277714841728.png">
+                            <span>행운출첵</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-428361468133376.png">
+                            <span>패키지할인</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-454907261710336.webp">
+                            <span>챌린지참여</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-425277957267520.png">
+                            <span>오마트</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-424889463009280.png">
+                            <span>원하는날도착</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-479396127195200.webp">
+                            <span>이사·청소</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/icon/v1-479395724681280.webp">
+                            <span>인터넷신청</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <section class="container-inline container-block-b">
+            <div class="title">
+                <h2>이런 사진 찾고 있나요?</h2>
+                <p>좋아하실 만한 인테리어 콘텐츠를 추천해드려요</p>
             </div>
-        </main>
-        <footer>
+        </section>
+    </main>
+    <footer>
 
-        </footer>
-    </div>
+    </footer>
 </body>
 </html>

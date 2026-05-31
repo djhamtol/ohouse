@@ -85,16 +85,29 @@ strong {
 	position: absolute;
 	width: 1px;
 	height: 1px;
+	padding: 0;
+	margin: -1px;
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
 }
 
 :focus-visible {
 	outline: 2px solid blue;
 }
 
-.container {
+.container-inline {
     max-width: 1256px;
     margin: 0 auto;
     padding-inline: 60px;
+}
+
+.container-block-m {
+	margin-block: 30px;
+}
+
+.container-block-b {
+	margin-block: 40px;
 }
