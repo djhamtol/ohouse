@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mainView.rollingKeyword();
     mainView.toggleWholeView();
     mainView.initMainBannerSwiper();
+    mainView.initRecommendInteriorSwiper();
+    mainView.initCartegorySwiper();
 });
 
 
@@ -20,7 +22,7 @@ const mainView = {
 
         // 배경 클릭시 닫기
         document.addEventListener('click', (e) => {
-            if (!category.contains(e.target)&&!btn.contains(e.target)) {
+            if (!category.contains(e.target) && !btn.contains(e.target)) {
                 category.classList.remove('active');
             };
         });
@@ -152,11 +154,13 @@ const mainView = {
         });
     },
 
-    // .main-banner-swiper 초기화
+    // mainBannerSwiper 초기화
     initMainBannerSwiper() {
-        const section = document.querySelector('.main-banner-slide');
+        const section = document.querySelector('.main-banner-slider');
+        const nextBtn = section.querySelector('.swiper-button-next');
+        const prevBtn = section.querySelector('.swiper-button-prev');
 
-        let swiper = new Swiper(".main-banner-swiper", {
+        let mainBannerSwiper = new Swiper('.main-banner-swiper', {
             loop: true,
             speed: 500,
 
@@ -177,10 +181,101 @@ const mainView = {
                     `;
                 },
             },
+
             navigation: {
-                nextEl: section.querySelector('.swiper-button-next'),
-                prevEl: section.querySelector('.swiper-button-prev'),
+                nextEl: nextBtn,
+                prevEl: prevBtn,
             }
+        });
+    },
+
+    // recommendInteriorSwiper 초기화
+    initRecommendInteriorSwiper() {
+        const slider = document.querySelector('.recommend-interior-slider');
+        const nextBtn = slider.querySelector('.swiper-button-next');
+        const prevBtn = slider.querySelector('.swiper-button-prev');
+
+        const perView = 6;
+
+        // 초기화
+        let recommendInteriorSwiper = new Swiper('.recommend-interior-swiper', {
+            slidesPerView: perView,
+            spaceBetween: 20
+        });
+
+        // 네비게이션 버튼 옵션 없으므로 disabled 직접 넣어주기
+        const updateNav = () => {
+            prevBtn.classList.toggle('disabled', recommendInteriorSwiper.isBeginning);
+            nextBtn.classList.toggle('disabled', recommendInteriorSwiper.isEnd);
+        };
+
+        updateNav();
+
+        // 네비게이션 버튼 옵션 없애고 이벤트 직접 구현
+        // slidesPerView 개수 모자르면 앞 페이지 슬라이드 끌고와서 개수 채우기. 무조건 slidesPerView 개수대로 띄움
+        nextBtn.addEventListener('click', () => {
+            const lastPageStartIdx = recommendInteriorSwiper.slides.length - perView;
+            const nextStartIndex = recommendInteriorSwiper.activeIndex + perView;
+
+            recommendInteriorSwiper.slideTo(
+                Math.min(nextStartIndex, lastPageStartIdx) // 다음 페이지가 마지막 페이지면 lastPageStartIdx로 이동하고 아니면 현재 슬라이드에서 perView 더한 만큼 이동
+            );
+
+            updateNav();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const prevStartIndex = recommendInteriorSwiper.activeIndex - perView;
+
+            recommendInteriorSwiper.slideTo(
+                Math.max(prevStartIndex, 0) // 이전 페이지가 첫 페이지면 0으로 이동하고 아니면 perView 뺀 만큼 이동
+            );
+
+            updateNav();
+        });
+    },
+
+    initCartegorySwiper() {
+        const slider = document.querySelector('.cartegory-swiper-slider');
+        const nextBtn = slider.querySelector('.swiper-button-next');
+        const prevBtn = slider.querySelector('.swiper-button-prev');
+
+        // 초기화
+        let cartegorySwiper = new Swiper('.cartegory-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 12
+        });
+
+        // 네비게이션 버튼 옵션 없으므로 disabled 직접 넣어주기
+        const updateNav = () => {
+            prevBtn.classList.toggle('disabled', cartegorySwiper.isBeginning);
+            nextBtn.classList.toggle('disabled', cartegorySwiper.isEnd);
+        };
+
+        updateNav();
+
+        // 네비게이션 버튼 옵션 없애고 이벤트 직접 구현
+        // 무조건 한 줄에 슬라이드 꽉 채우기 슬라이드 모자르면 앞 페이지 슬라이드 끌고와서 채우기
+        nextBtn.addEventListener('click', () => {
+            const nextTranslate = cartegorySwiper.translate - cartegorySwiper.width;
+
+            cartegorySwiper.translateTo(
+                Math.max(nextTranslate, cartegorySwiper.maxTranslate()),
+                300
+            );
+
+            updateNav();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const prevTranslate = cartegorySwiper.translate + cartegorySwiper.width;
+
+            cartegorySwiper.translateTo(
+                Math.min(prevTranslate, cartegorySwiper.minTranslate()),
+                300
+            );
+
+            updateNav();
         });
     }
 

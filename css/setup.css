@@ -27,7 +27,7 @@ html {
 }
 
 body {
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	background-color: var(--bg-primary);
 	font-family: "Pretendard Variable", "Noto Sans KR", sans-serif;
 	font-size: 16px;
@@ -110,4 +110,86 @@ strong {
 
 .container-block-b {
 	margin-block: 40px;
+}
+
+.top {
+    padding-block: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.top h2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.top .title a h2:hover {
+    opacity: 0.5;
+}
+
+.top p {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.top .more {
+    margin-left: auto;
+    font-weight: 700;
+    color: var(--color-secondary);
+    line-height: 20px;
+}
+
+.top .more:hover {
+    opacity: 0.5;
+}
+
+/* navigation button wrapper */
+.swiper-button-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    pointer-events: none;
+}
+
+/* navigation button */
+.swiper-button-next,
+.swiper-button-prev {
+	margin-top: 0;
+
+    width: 48px;
+    height: 48px;
+
+    color: #000;
+    background-color: var(--bg-primary);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+
+    pointer-events: auto;
+}
+
+.swiper-button-next {
+	top: auto;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.swiper-button-prev {
+	top: auto;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.swiper-button-next.disabled,
+.swiper-button-prev.disabled {
+    display: none;
+}
+
+.swiper-button-next svg,
+.swiper-button-prev svg {
+    width: 10px;
+    height: 20px;
 }
