@@ -47,14 +47,17 @@ const mainView = {
         header.addEventListener('mouseleave', () => {
             isHovered = false;
 
-            if (wasHideBeforeHover) hdBottom.classList.add('hide');
+            if (wasHideBeforeHover || isscrollDown) hdBottom.classList.add('hide');
         });
 
         // scroll
         let lastScroll = 0;
+        let isscrollDown = false;
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.scrollY;
+
+            isscrollDown = currentScroll > lastScroll;
 
             hdBottom.classList.toggle('hide' , currentScroll > lastScroll && !isHovered); // 스크롤 내리면 숨기기
             
