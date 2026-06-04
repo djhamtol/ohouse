@@ -124,7 +124,7 @@ strong {
     line-height: 28px;
 }
 
-.top .title a h2:hover {
+.top a h2:hover {
     opacity: 0.5;
 }
 
@@ -143,6 +143,12 @@ strong {
 
 .top .more:hover {
     opacity: 0.5;
+}
+
+.bookmark {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
 }
 
 /* navigation button wrapper */
