@@ -51,6 +51,7 @@ button,
 textarea,
 select {
 	font: inherit;
+	color: inherit;
 	border: 0;
 	background: transparent;
 }
@@ -149,6 +150,10 @@ strong {
     position: absolute;
     right: 8px;
     bottom: 8px;
+}
+
+footer a:hover {
+	text-decoration: underline;
 }
 
 /* navigation button wrapper */
