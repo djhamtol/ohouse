@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    mainView.toggleCategory();
+    mainView.toggleWriteCategory();
     mainView.toggleHeaderBottomScroll();
     mainView.renderKeywordRankList();
     mainView.rollingKeyword();
-    mainView.toggleWholeView();
+    mainView.toggleKeywordPanel();
     mainView.initMainBannerSwiper();
     mainView.initRecommendInteriorSwiper();
     mainView.initCartegorySwiper();
@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const mainView = {
-    // .write-category 토글
-    toggleCategory() {
-        const btn = document.querySelector('.write-btn');
-        const category = document.querySelector('.write-category');
+    // .write__category 토글
+    toggleWriteCategory() {
+        const btn = document.querySelector('.write__btn');
+        const category = document.querySelector('.write__category');
 
         btn.addEventListener('click', () => {
             category.classList.toggle('active');
@@ -65,10 +65,10 @@ const mainView = {
         });
     },
 
-    // .keyword-rank-list 동적 삽입
+    // .popular-keyword__rank-list 동적 삽입
     renderKeywordRankList() {
-        const rollingList = document.querySelector('.keyword-rolling-view .keyword-rank-list');
-        const wholeList = document.querySelector('.keyword-whole-view .keyword-rank-list');
+        const rollingList = document.querySelector('.popular-keyword__rolling-view .popular-keyword__rank-list');
+        const wholeList = document.querySelector('.popular-keyword__panel .popular-keyword__rank-list');
 
         // 데이터 가공
         const keywordArr = [
@@ -110,8 +110,8 @@ const mainView = {
 
     // 인기 검색어 루프
     rollingKeyword() {
-        const rollingList = document.querySelector('.keyword-rolling-view .keyword-rank-list');
-        const items = document.querySelectorAll('.keyword-rolling-view .keyword-rank-list li');
+        const rollingList = document.querySelector('.popular-keyword__rolling-view .popular-keyword__rank-list');
+        const items = document.querySelectorAll('.popular-keyword__rolling-view .popular-keyword__rank-list li');
 
         if (!items.length) return;
 
@@ -140,30 +140,38 @@ const mainView = {
         });
     },
 
-    // .keyword-whole-view 토글
-    toggleWholeView() {
-        const btn = document.querySelector('.whole-view-btn');
-        const view = document.querySelector('.keyword-whole-view');
+    // .popular-keyword__panel 토글
+    toggleKeywordPanel() {
+        const btn = document.querySelector('.popular-keyword__btn');
+        const panel = document.querySelector('.popular-keyword__panel');
+
+        const updateAccessibility = () => {
+            const isOpen = panel.classList.contains('active');
+
+            btn.setAttribute('aria-expanded', isOpen);
+        };
 
         btn.addEventListener('click', () => {
-            view.classList.toggle('active');
+            panel.classList.toggle('active');
+            updateAccessibility();
         });
 
         // 배경 클릭시 닫기
         document.addEventListener('click', (e) => {
-            if(!view.contains(e.target)&&!btn.contains(e.target)) {
-                view.classList.remove('active');
+            if(!panel.contains(e.target) && !btn.contains(e.target)) {
+                panel.classList.remove('active');
+                updateAccessibility();
             };
         });
     },
 
     // mainBannerSwiper 초기화
     initMainBannerSwiper() {
-        const section = document.querySelector('.main-banner-slider');
+        const section = document.querySelector('.main-banner__slider');
         const nextBtn = section.querySelector('.swiper-button-next');
         const prevBtn = section.querySelector('.swiper-button-prev');
 
-        let mainBannerSwiper = new Swiper('.main-banner-swiper', {
+        let mainBannerSwiper = new Swiper('.main-banner__swiper', {
             loop: true,
             speed: 500,
 
@@ -194,14 +202,14 @@ const mainView = {
 
     // recommendInteriorSwiper 초기화
     initRecommendInteriorSwiper() {
-        const slider = document.querySelector('.recommend-interior-slider');
+        const slider = document.querySelector('.recommend-interior__slider');
         const nextBtn = slider.querySelector('.swiper-button-next');
         const prevBtn = slider.querySelector('.swiper-button-prev');
 
         const perView = 6;
 
         // 초기화
-        let recommendInteriorSwiper = new Swiper('.recommend-interior-swiper', {
+        let recommendInteriorSwiper = new Swiper('.recommend-interior__swiper', {
             slidesPerView: perView,
             spaceBetween: 20
         });
@@ -239,12 +247,12 @@ const mainView = {
     },
 
     initCartegorySwiper() {
-        const slider = document.querySelector('.cartegory-swiper-slider');
+        const slider = document.querySelector('.cartegory__slider');
         const nextBtn = slider.querySelector('.swiper-button-next');
         const prevBtn = slider.querySelector('.swiper-button-prev');
 
         // 초기화
-        let cartegorySwiper = new Swiper('.cartegory-swiper', {
+        let cartegorySwiper = new Swiper('.cartegory__swiper', {
             slidesPerView: 'auto',
             spaceBetween: 12
         });

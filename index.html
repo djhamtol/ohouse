@@ -27,10 +27,10 @@
 <body>
     <header>
         <div class="hd-top">
-            <div class="top-container container-inline">
+            <div class="hd-top__container container-inline">
                 <h1 class="logo">
                     <a href="index.html">
-                        <img src="images/ohouse-horizontal.svg" alt="오늘의 집 로고">
+                        <img src="images/ohouse-horizontal.svg" alt="오늘의 집">
                     </a>
                 </h1>
                 <nav id="gnb">
@@ -40,33 +40,33 @@
                         <li><a href="#">인테리어/생활</a></li>
                     </ul>
                 </nav>
-                <div class="layout">
-                    <div class="search-wrap">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <div class="hd-top__layout">
+                    <div class="search">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                         </svg>
-                        <input type="search" placeholder="통합검색">
+                        <input type="search" placeholder="통합검색" aria-label="통합검색">
                     </div>
-                    <a href="#" class="cart" aria-label="장바구니 페이지 링크 버튼">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <a href="#" class="cart" aria-label="장바구니 페이지 바로 가기">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24px" height="24px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                         </svg>
                     </a>
-                    <div class="util-wrap">
-                        <div class="util">
+                    <div class="util">
+                        <div class="auth">
                             <ul>
                                 <li><a href="#">로그인</a></li>
                                 <li><a href="#">회원가입</a></li>
                             </ul>
                         </div>
                         <div class="write">
-                            <button type="button" class="write-btn">
+                            <button type="button" class="write__btn">
                                 <span>글쓰기</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480" class="css-19b3058">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" fill="currentColor" viewBox="0 0 480 480" class="css-19b3058">
                                     <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
                                 </svg>
                             </button>
-                            <div class="write-category">
+                            <div class="write__category">
                                 <ul>
                                     <li>
                                         <a href="#">
@@ -130,7 +130,7 @@
             </div>
         </div>
         <div class="hd-bottom">
-            <div class="bottom-container container-inline">
+            <div class="hd-bottom__container container-inline">
                 <nav id="lnb">
                     <ul>
                         <li class="active"><a href="#">홈</a></li>
@@ -147,39 +147,41 @@
                     </ul>
                 </nav>
                 <div class="popular-keyword">
-                    <div class="keyword-rolling-view">
-                        <ol class="keyword-rank-list"></ol>
+                    <div class="popular-keyword__rolling-view">
+                        <ol class="popular-keyword__rank-list"></ol>
                     </div>
-                    <button type="button" class="whole-view-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" viewBox="0 0 480 480">
-                            <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
-                        </svg>
-                    </button>
-                    <div class="keyword-whole-view">
-                        <h2>인기 검색어</h2>
-                        <ol class="keyword-rank-list"></ol>
+                    <div class="popular-keyword__dropdown">
+                        <button type="button" class="popular-keyword__btn" aria-expanded="false" aria-label="인기 검색어 전체 순위">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" fill="currentColor" viewBox="0 0 480 480">
+                                <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
+                            </svg>
+                        </button>
+                        <div class="popular-keyword__panel">
+                            <h2>인기 검색어</h2>
+                            <ol class="popular-keyword__rank-list"></ol>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <div class="main-banner-wrap container-inline">
-            <section class="main-banner-img">
+        <div class="main-banner container-inline">
+            <section class="main-banner__img">
                 <a href="#">
                     <img src="images/banner/175281545340055884.avif" alt>
-                    <div class="txt-box">
+                    <div class="main-banner__txt-box">
                         <h2>해외 디자인 감성이 깃든, 감도 높은 아이템 | 왓츠인마이홈</h2>
-                        <div class="by">
+                        <div class="main-banner__by">
                             <img src="images/167947653745256381.avif">
                             <span>tov.haus</span>
                         </div>
                     </div>
                 </a>
             </section>
-            <section class="main-banner-slider">
+            <section class="main-banner__slider">
                 <h2 class="sr-only">메인 슬라이드 배너</h2>
-                <div class="swiper main-banner-swiper">
+                <div class="swiper main-banner__swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <a href="#">
@@ -225,61 +227,61 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-497834904215552.png">
+                            <img src="images/icon/v1-497834904215552.png" alt>
                             <span>쇼핑하기</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-432362057166912.png">
+                            <img src="images/icon/v1-432362057166912.png" alt>
                             <span>오늘의딜</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-425277651230720.png">
+                            <img src="images/icon/v1-425277651230720.png" alt>
                             <span>집들이</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-425277714841728.png">
+                            <img src="images/icon/v1-425277714841728.png" alt>
                             <span>행운출첵</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-428361468133376.png">
+                            <img src="images/icon/v1-428361468133376.png" alt>
                             <span>패키지할인</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-454907261710336.webp">
+                            <img src="images/icon/v1-454907261710336.webp" alt>
                             <span>챌린지참여</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-425277957267520.png">
+                            <img src="images/icon/v1-425277957267520.png" alt>
                             <span>오마트</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-424889463009280.png">
+                            <img src="images/icon/v1-424889463009280.png" alt>
                             <span>원하는날도착</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-479396127195200.webp">
+                            <img src="images/icon/v1-479396127195200.webp" alt>
                             <span>이사·청소</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/icon/v1-479395724681280.webp">
+                            <img src="images/icon/v1-479395724681280.webp" alt>
                             <span>인터넷신청</span>
                         </a>
                     </li>
@@ -287,140 +289,140 @@
             </nav>
         </div>
         <section class="container-inline container-block-b recommend-interior">
-            <div class="top">
-                <div class="title">
+            <div class="section-top">
+                <div>
                     <a href="#">
                         <h2>이런 사진 찾고 있나요?</h2>
                     </a>
                     <p>좋아하실 만한 인테리어 콘텐츠를 추천해드려요</p>
                 </div>
-                <a href="#" class="more">더보기</a>
+                <a href="#" class="section-more">더보기</a>
             </div>
-            <div class="recommend-interior-slider">
-                <div class="swiper recommend-interior-swiper">
+            <div class="recommend-interior__slider">
+                <div class="swiper recommend-interior__swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-451848376168512.avif">
+                                <img src="images/slide/v1-451848376168512.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/v1-446842397712512.avif">
+                                <img src="images/slide/v1-446842397712512.avif" alt>
                                 <span>옐로우동동</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-444692308938880.avif">
+                                <img src="images/slide/v1-444692308938880.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/163931346718064751.avif">
+                                <img src="images/slide/163931346718064751.avif" alt>
                                 <span>막내이모홈</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-444729740558400.avif">
+                                <img src="images/slide/v1-444729740558400.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/v1-473483835789440.avif">
+                                <img src="images/slide/v1-473483835789440.avif" alt>
                                 <span>퓌치</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-436728961388672.avif">
+                                <img src="images/slide/v1-436728961388672.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/v1-353462186971200.avif">
+                                <img src="images/slide/v1-353462186971200.avif" alt>
                                 <span>sund_home</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-505238523899968.avif">
+                                <img src="images/slide/v1-505238523899968.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/v1-263816392323200.avif">
+                                <img src="images/slide/v1-263816392323200.avif" alt>
                                 <span>나는골대녀</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-414730431664256.avif">
+                                <img src="images/slide/v1-414730431664256.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/v1-452224252219520.avif">
+                                <img src="images/slide/v1-452224252219520.avif" alt>
                                 <span>우디앤파크</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-451848376168512.avif">
+                                <img src="images/slide/v1-451848376168512.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/v1-446842397712512.avif">
+                                <img src="images/slide/v1-446842397712512.avif" alt>
                                 <span>옐로우동동</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-444692308938880.avif">
+                                <img src="images/slide/v1-444692308938880.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/163931346718064751.avif">
+                                <img src="images/slide/163931346718064751.avif" alt>
                                 <span>막내이모홈</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/slide/v1-444729740558400.avif">
+                                <img src="images/slide/v1-444729740558400.avif" alt>
                             </a>
                             <div class="profile">
-                                <img src="images/slide/v1-473483835789440.avif">
+                                <img src="images/slide/v1-473483835789440.avif" alt>
                                 <span>퓌치</span>
                             </div>
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <button type="button" class="bookmark" aria-label="북마크">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
                                     <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
                                 </svg>
                             </button>
@@ -428,7 +430,7 @@
                         <div class="swiper-slide more-slide">
                             <a href="#">
                                 <div class="more-arrow">
-                                    <svg xmlns="http://www.w3.org/2000/svg"  width="18"  height="18" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18"  height="18" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                                     </svg>
                                 </div>
@@ -452,180 +454,180 @@
             </div>
         </section>
         <section class="container-inline container-block-b recommend-home">
-            <div class="top">
+            <div class="section-top">
                 <a href="#">
                     <h2>오늘의 추천 집들이 구경해보세요🧐</h2>
                 </a>
-                <a href="#" class="more">더보기</a>
+                <a href="#" class="section-more">더보기</a>
             </div>
             <ul class="homes">
                 <li>
                     <a href="#">
                         <div class="home-thumbnail">
-                            <img src="images/home/v1-388913558425728.avif">
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
-                                    <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
-                                </svg>
-                            </button>
+                            <img src="images/home/v1-388913558425728.avif" alt>
                         </div>
                         <p>따뜻한 원목에 동양적인 감성을 더해, 정갈하게 채운 18평 집</p>
                     </a>
+                    <button type="button" class="bookmark" aria-label="북마크">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
+                        </svg>
+                    </button>
                 </li>
                 <li>
                     <a href="#">
                         <div class="home-thumbnail">
-                            <img src="images/home/173254670724914389.avif">
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
-                                    <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
-                                </svg>
-                            </button>
+                            <img src="images/home/173254670724914389.avif" alt>
                         </div>
                         <p>구축 17평 아파트 리모델링 4년차, 솔직한 장단점 기록✍🏻</p>
                     </a>
+                    <button type="button" class="bookmark" aria-label="북마크">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
+                        </svg>
+                    </button>
                 </li>
                 <li>
                     <a href="#">
                         <div class="home-thumbnail">
-                            <img src="images/home/v1-375340489793664.avif">
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
-                                    <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
-                                </svg>
-                            </button>
+                            <img src="images/home/v1-375340489793664.avif" alt>
                         </div>
                         <p>세심함이 빛난 반셀프✨ 30년된 구축, 감성 하우스로 재탄생!</p>
                     </a>
+                    <button type="button" class="bookmark" aria-label="북마크">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
+                        </svg>
+                    </button>
                 </li>
                 <li>
                     <a href="#">
                         <div class="home-thumbnail">
-                            <img src="images/home/170894478847205873.avif">
-                            <button type="button" class="bookmark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
-                                    <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
-                                </svg>
-                            </button>
+                            <img src="images/home/170894478847205873.avif" alt>
                         </div>
                         <p>☁️ 구름 위를 둥둥~ 러블리 화이트톤으로 꾸민 8평 오피스텔</p>
                     </a>
+                    <button type="button" class="bookmark" aria-label="북마크">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" color="#FFFFFF" class="css-whh5e5">
+                            <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path><path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
+                        </svg>
+                    </button>
                 </li>
             </ul>
         </section>
         <section class="container-inline container-block-b cartegory">
-            <div class="top">
+            <div class="section-top">
                 <h2>카테고리별 상품 찾기</h2>
             </div>
-            <div class="cartegory-swiper-slider">
-                <div class="swiper cartegory-swiper">
+            <div class="cartegory__slider">
+                <div class="swiper cartegory__swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-504543562002432.avif">
-                                <div>여름시작</div>
+                                <img src="images/cartegory/v1-504543562002432.avif" alt>
+                                <span>여름시작</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484633890967680.avif">
-                                <div>가구</div>
+                                <img src="images/cartegory/v1-484633890967680.avif" alt>
+                                <span>가구</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484633913364480.webp">
-                                <div>패브릭</div>
+                                <img src="images/cartegory/v1-484633913364480.webp" alt>
+                                <span>패브릭</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484633931772032.webp">
-                                <div>가전·디지털</div>
+                                <img src="images/cartegory/v1-484633931772032.webp" alt>
+                                <span>가전·디지털</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484633951850560.webp">
-                                <div>주방용품</div>
+                                <img src="images/cartegory/v1-484633951850560.webp" alt>
+                                <span>주방용품</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484633970626624.avif">
-                                <div>식품</div>
+                                <img src="images/cartegory/v1-484633970626624.avif" alt>
+                                <span>식품</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484633991954432.webp">
-                                <div>데코·식물</div>
+                                <img src="images/cartegory/v1-484633991954432.webp" alt>
+                                <span>데코·식물</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-485389710147712.avif">
-                                <div>조명</div>
+                                <img src="images/cartegory/v1-485389710147712.avif" alt>
+                                <span>조명</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634028109952.webp">
-                                <div>수납·정리</div>
+                                <img src="images/cartegory/v1-484634028109952.webp" alt>
+                                <span>수납·정리</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634042691648.avif">
-                                <div>생활용품</div>
+                                <img src="images/cartegory/v1-484634042691648.avif" alt>
+                                <span>생활용품</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634065928256.avif">
-                                <div>생필품</div>
+                                <img src="images/cartegory/v1-484634065928256.avif" alt>
+                                <span>생필품</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634087993344.webp">
-                                <div>유아·아동</div>
+                                <img src="images/cartegory/v1-484634087993344.webp" alt>
+                                <span>유아·아동</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-485352941244544.avif">
-                                <div>반려동물</div>
+                                <img src="images/cartegory/v1-485352941244544.avif" alt>
+                                <span>반려동물</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634135208000.webp">
-                                <div>캠핑·레저</div>
+                                <img src="images/cartegory/v1-484634135208000.webp" alt>
+                                <span>캠핑·레저</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634158764160.avif">
-                                <div>공구·DIY</div>
+                                <img src="images/cartegory/v1-484634158764160.avif" alt>
+                                <span>공구·DIY</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634182627328.avif">
-                                <div>인테리어시공</div>
+                                <img src="images/cartegory/v1-484634182627328.avif" alt>
+                                <span>인테리어시공</span>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634207989760.avif">
-                                <div>렌탈·구독</div>
+                                <img src="images/cartegory/v1-484634207989760.avif" alt>
+                                <span>렌탈·구독</sp>
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="images/cartegory/v1-484634228039808.webp">
-                                <div>장보기</div>
+                                <img src="images/cartegory/v1-484634228039808.webp" alt>
+                                <span>장보기</span>
                             </a>
                         </div>
                     </div>
@@ -644,32 +646,85 @@
                 </div>
             </div>
         </section>
+        <section class="today-deal container-inline container-block-b">
+            <div class="section-top">
+                <a href="#">
+                    <h2>오늘의 딜</h2>
+                </a>
+                <a href="#" class="section-more">더보기</a>
+            </div>
+            <div class="today-deal__slider">
+                <div class="swiper today-deal__swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <article>
+                                <a href="#">
+                                    <div class="today-deal__thumbnail">
+                                        <img src="images/deal/v1-489285959331904.avif" alt="최화정 냄비 세트">
+                                        <span class="today-deal__countDown"></span>
+                                    </div>
+                                    <div class="today-deal__desc">
+                                        <span>스테니</span>
+                                        <h3>[7일 단하루] 최화정 냄비! 국내최초 무연마제 스텐 IH 프라이팬 & 찜기 & 냄비</h3>
+                                        <div class="today-deal__price">
+                                            <span>33%</span>
+                                            <strong>79,800 외</strong>
+                                        </div>
+                                        <div class="today-deal__review">
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="12" fill="currentColor" viewBox="0 0 480 480" class="icon" color="var(--ds-core-color-foregroundBrand)">
+                                                    <path d="M213.697 40.7c11.46-20.585 41.145-20.584 52.604 0l.269.494 49.728 93.115 105.26 17.948c23.802 4.059 33.394 33.07 16.702 50.517l-72.843 76.136 14.523 107.862c3.188 23.678-21.139 41.466-42.736 31.248l-97.205-45.989-97.205 45.989c-21.597 10.218-45.924-7.57-42.736-31.248L114.58 278.91l-72.842-76.136c-16.692-17.447-7.1-46.458 16.702-50.517L163.7 134.309l49.729-93.115z"></path>
+                                                </svg>
+                                                4.9
+                                            </span>
+                                            <span>리뷰 201</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="47" height="20" viewBox="0 0 47 20" preserveAspectRatio="xMidYMid meet" class="icon" aria-label="무료배송">
+                                            <g fill="none" fill-rule="evenodd">
+                                                <rect width="47" height="20" fill="#000" fill-opacity="0.07" fill-rule="nonzero" rx="4"></rect>
+                                                <path fill="#757575" d="M12.73 5.38v3.96h-6.6V5.38h6.6zm-2.68 9.43H8.76v-3.25H5v-1.03h8.86v1.03h-3.81v3.25zm1.4-6.49V6.41H7.43v1.91h4.04zm11.08 2.7h-1.42v1.54h2.26v1.02h-8.86v-1.02h2.24v-1.53h-1.1V7.78h5.32V6.65H15.6V5.63h6.66V8.8h-5.33v1.18h5.61v1.04zm-4.53 0v1.54h1.87v-1.53H18zm14.37 3.78h-1.23V9.86h-.8v4.49h-1.2V5.18h1.2v3.66h.8V5h1.23v9.8zm-4.2-2.54h-3.9V6.01h1.27v2.26h1.36V6h1.28v6.26zm-1.27-1.01v-2h-1.36v2h1.36zm14.49 1.71c0 1.13-1.25 1.82-3.41 1.82s-3.42-.7-3.42-1.82 1.25-1.82 3.4-1.82c2.18 0 3.43.7 3.43 1.82zm-3.41-6.05c-.5 1.13-2.1 1.9-3.51 2.1l-.54-1c1.64-.17 3.39-1.06 3.39-2.54V5.2h1.33v.28c0 1.48 1.99 2.47 3.4 2.53l-.55 1.01c-1.31-.18-3.03-.97-3.52-2.1zm4.42 3.78h-8.86V9.66h3.79V8.4h1.29v1.26h3.78v1.03zm-2.33 2.27c0-.5-.83-.8-2.1-.8s-2.08.3-2.08.8c0 .51.81.8 2.08.8s2.1-.29 2.1-.8z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <button type="button" aria-label="북마크">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 480 480" class="inactive-icon" color="var(--ds-core-color-foregroundInverse)">
+                                        <path fill="currentColor" fill-rule="evenodd" d="M310 60c26.116 0 48.585 5.957 64.313 21.686S396 119.883 396 146v247.889c0 10.958-5.109 20.971-13.798 26.892-8.882 6.052-20.449 7.057-30.938 1.872a15 15 0 0 1-.698-.366L240 360.687l-110.566 61.6q-.344.192-.698.366c-10.489 5.185-22.056 4.18-30.938-1.872C89.108 414.86 84 404.847 84 393.889V146c0-26.117 5.958-48.586 21.687-64.314C121.415 65.957 143.884 60 170 60zM170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z" clip-rule="evenodd"></path>
+                                        <path fill="currentColor" fill-opacity="0.5" d="M170 92c-21.884 0-34.415 5.042-41.687 12.313S116 124.115 116 146v247.14l116.213-64.745.457-.246a16 16 0 0 1 15.117.246L364 393.14V146c0-21.885-5.042-34.415-12.313-41.687C344.415 97.043 331.884 92 310 92z"></path>
+                                    </svg>
+                                </button>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <div class="container-inline footer-container">
-            <div class="footer-cs">
-                <a href="#" class="cs-page">고객센터</a>
-                <div class="cs-info-wrap">
-                    <div class="cs-info-title">
-                        <a href="tel:0000-0000" class="cs-tel">0000-0000</a>
-                        <span class="cs-time">
+    <footer class="footer">
+        <div class="footer__container container-inline">
+            <div class="footer__cs">
+                <a href="#" class="cs__page">고객센터</a>
+                <div class="cs__detail">
+                    <div class="cs__title">
+                        <a href="tel:0000-0000" class="cs__tel">0000-0000</a>
+                        <span class="cs__time">
                             <time datetime="09:00">09:00</time>
                             ~
                             <time datetime="18:00">18:00</time>
                         </span>
                     </div>
-                    <ul class="cs-info">
+                    <ul class="cs__info">
                         <li>평일: 전체 문의 상담</li>
                         <li>토요일, 공휴일: 오늘의집 직접배송 주문건 상담</li>
                         <li>일요일: 휴무</li>
                     </ul>
                 </div>
-                <div class="cs-messenger">
+                <div class="cs__messenger">
                     <button type="button">카톡 상담(평일 09:00~18:00)</button>
                     <a href="#">이메일 문의</a>
                 </div>
             </div>
-            <nav class="footer-links">
+            <nav class="footer__links">
                 <ul>
                     <li>
                         <a href="#">회사소개</a>
@@ -712,8 +767,8 @@
                     </li>
                 </ul>
             </nav>
-            <div class="footer-company">
-                <ul class="company-info">
+            <div class="footer__company">
+                <ul class="company__info">
                     <li>(주)버킷플레이스</li>
                     <li>대표이사 이승재</li>
                     <li>서울 서초구 서초대로74길 4 삼성생명서초타워 25층, 27층</li>
@@ -726,10 +781,10 @@
                     <li>통신판매업신고번호 제2018-서울서초-0580호</li>
                 </ul>
                 <p>(주)버킷플레이스는 통신판매중개자로 거래 당사자가 아니므로, 판매자가 등록한 상품정보 및 거래 등에 대해 책임을 지지 않습니다. 단, (주)버킷플레이스가 판매자로 등록 판매한 상품은 판매자로서 책임을 부담합니다.</p>
-                <ul class="sns">
+                <ul class="company__sns">
                     <li>
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
+                        <a href="#" aria-label="유튜브">
+                            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
                                 <circle cx="12" cy="12" r="11" fill="currentColor"></circle>
                                 <path d="M18.7086 8.63031C18.5472 8.02758 18.0736 7.55392 17.4709 7.39258C16.3783 7.09985 12.0002 7.09985 12.0002 7.09985C12.0002 7.09985 7.62199 7.09985 6.53062 7.39258C5.92789 7.55392 5.45423 8.02758 5.29289 8.63031C5.00016 9.72168 5.00016 12.0001 5.00016 12.0001C5.00016 12.0001 5.00016 14.2785 5.29289 15.3699C5.45423 15.9726 5.92789 16.4462 6.53062 16.6076C7.62199 16.9003 12.0002 16.9003 12.0002 16.9003C12.0002 16.9003 16.3783 16.9003 17.4697 16.6076C18.0724 16.4462 18.5461 15.9726 18.7074 15.3699C19.0002 14.2785 19.0002 12.0001 19.0002 12.0001C19.0002 12.0001 19.0002 9.72168 18.7074 8.63031H18.7086Z" fill="white"></path>
                                 <path d="M10.6013 14.0994L14.2396 11.9997L10.6013 9.8999V14.0994Z" fill="currentColor"></path>
@@ -737,16 +792,16 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
+                        <a href="#" aria-label="인스타그램">
+                            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
                                 <circle cx="12" cy="12" r="11" fill="currentColor"></circle>
                                 <path d="M9.10061 5.04896C8.3558 5.0841 7.84718 5.20296 7.40253 5.37768C6.94235 5.55702 6.5523 5.79768 6.16422 6.18717C5.77614 6.57665 5.53715 6.96698 5.35907 7.42786C5.18673 7.87349 5.06997 8.38253 5.03707 9.12776C5.00417 9.87299 4.99689 10.1125 5.00053 12.0135C5.00417 13.9144 5.01257 14.1527 5.04869 14.8995C5.08425 15.6441 5.20269 16.1526 5.37741 16.5974C5.55703 17.0576 5.79742 17.4475 6.18704 17.8357C6.57666 18.2239 6.96671 18.4624 7.42871 18.6407C7.87392 18.8128 8.3831 18.9301 9.12819 18.9627C9.87328 18.9953 10.1131 19.0029 12.0135 18.9993C13.9139 18.9956 14.1531 18.9872 14.8997 18.9518C15.6464 18.9164 16.1522 18.7971 16.5971 18.6232C17.0573 18.4432 17.4475 18.2032 17.8354 17.8134C18.2234 17.4237 18.4622 17.0331 18.6402 16.5719C18.8126 16.1267 18.9298 15.6175 18.9622 14.873C18.9948 14.1258 19.0025 13.8872 18.9988 11.9866C18.9952 10.0859 18.9867 9.84765 18.9513 9.10116C18.9158 8.35467 18.7972 7.84773 18.6227 7.40266C18.4428 6.94248 18.2027 6.55285 17.8132 6.16435C17.4237 5.77584 17.0328 5.53714 16.5718 5.35962C16.1263 5.18728 15.6174 5.06982 14.8723 5.03762C14.1272 5.00542 13.8874 4.99716 11.9863 5.0008C10.0852 5.00444 9.84724 5.01256 9.10061 5.04896ZM9.18237 17.7034C8.49986 17.6737 8.12928 17.5603 7.88232 17.4654C7.55527 17.3394 7.32231 17.1871 7.07619 16.9433C6.83007 16.6996 6.67886 16.4658 6.55118 16.1394C6.45528 15.8925 6.33978 15.5223 6.30786 14.8398C6.27314 14.1021 6.26586 13.8807 6.2618 12.0118C6.25774 10.1429 6.26488 9.92171 6.29722 9.18376C6.32634 8.50181 6.44044 8.13081 6.53522 7.88399C6.66122 7.55652 6.81299 7.32398 7.05729 7.078C7.30159 6.83201 7.53469 6.68053 7.86132 6.55285C8.108 6.45653 8.47816 6.34201 9.16039 6.30953C9.89862 6.27453 10.1198 6.26753 11.9884 6.26347C13.857 6.25941 14.0788 6.26641 14.8173 6.29889C15.4992 6.32857 15.8704 6.44155 16.1169 6.53689C16.4441 6.66289 16.6769 6.81423 16.9229 7.05896C17.1689 7.30368 17.3205 7.53594 17.4482 7.86327C17.5447 8.10925 17.6592 8.47927 17.6914 9.16192C17.7265 9.90015 17.7345 10.1215 17.7379 11.9899C17.7412 13.8584 17.7346 14.0803 17.7023 14.818C17.6725 15.5005 17.5594 15.8712 17.4643 16.1184C17.3383 16.4454 17.1864 16.6785 16.9419 16.9243C16.6975 17.1701 16.4647 17.3216 16.1379 17.4493C15.8915 17.5455 15.5209 17.6603 14.8393 17.6928C14.101 17.7275 13.8798 17.7348 12.0105 17.7388C10.1412 17.7429 9.92074 17.7353 9.18251 17.7034M14.889 8.25877C14.8898 8.72273 15.2664 9.09822 15.7304 9.09738C16.1943 9.09654 16.5698 8.71993 16.569 8.25597C16.5681 7.792 16.1915 7.41652 15.7276 7.41736C15.7276 7.41736 15.7274 7.41736 15.7273 7.41736C15.2635 7.41834 14.8881 7.79494 14.889 8.25877ZM8.4055 12.007C8.40942 13.9922 10.0217 15.5979 12.0065 15.5941C13.9913 15.5904 15.5981 13.9782 15.5943 11.993C15.5905 10.0078 13.9778 8.40171 11.9928 8.40563C10.0077 8.40955 8.40172 10.0221 8.4055 12.007ZM9.66635 12.0045C9.66383 10.7158 10.7064 9.669 11.9951 9.66648C13.2839 9.66396 14.3306 10.7066 14.3332 11.9953C14.3357 13.284 13.2931 14.3308 12.0044 14.3333C10.7158 14.336 9.66901 13.2936 9.66635 12.0051V12.0045Z" fill="white"></path>
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
+                        <a href="#" aria-label="페이스북">
+                            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
                                 <g clip-path="url(#clip0_21132_87052)">
                                     <path d="M23 12C23 5.92486 18.0751 1 12 1C5.92486 1 1 5.92486 1 12C1 17.4903 5.02252 22.0412 10.2812 22.8664V15.1797H7.48828V12H10.2812V9.57656C10.2812 6.81969 11.9235 5.29688 14.4361 5.29688C15.6397 5.29688 16.8984 5.51172 16.8984 5.51172V8.21875H15.5114C14.145 8.21875 13.7188 9.06674 13.7188 9.93664V12H16.7695L16.2818 15.1797H13.7188V22.8664C18.9775 22.0412 23 17.4905 23 12Z" fill="currentColor"></path>
                                     <path d="M16.2818 15.1797L16.7695 12H13.7188V9.93664C13.7188 9.06674 14.145 8.21875 15.5114 8.21875H16.8984V5.51172C16.8984 5.51172 15.6397 5.29688 14.4361 5.29688C11.9235 5.29688 10.2812 6.81969 10.2812 9.57656V12H7.48828V15.1797H10.2812V22.8664C10.8413 22.9542 11.4152 23 12 23C12.5848 23 13.1587 22.9542 13.7188 22.8664V15.1797H16.2818Z" fill="white"></path>
@@ -760,8 +815,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
+                        <a href="#" aria-label="네이버포스트">
+                            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-8n6bc3">
                                 <circle cx="12" cy="12" r="11" fill="currentColor"></circle>
                                 <path d="M7.96631 5.76685H16.033V13.8335H7.96631V5.76685ZM12.5913 8.24889V9.81433L11.4126 8.24889H10.1381V11.3515H11.4082V9.78601L12.5872 11.3515H13.8612V8.24889H12.5913Z" fill="white"></path>
                                 <path d="M7.96631 14.454H16.033L14.5204 16.3156H9.47869L7.96631 14.454Z" fill="white"></path>

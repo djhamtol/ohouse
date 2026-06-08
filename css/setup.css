@@ -113,43 +113,37 @@ strong {
 	margin-block: 40px;
 }
 
-.top {
+.section-top {
     padding-block: 20px;
     display: flex;
     align-items: center;
 }
 
-.top h2 {
+.section-top h2 {
     font-size: 20px;
     font-weight: 700;
     line-height: 28px;
 }
 
-.top a h2:hover {
+.section-top a h2:hover {
     opacity: 0.5;
 }
 
-.top p {
+.section-top p {
     margin-top: 4px;
     font-size: 14px;
     line-height: 18px;
 }
 
-.top .more {
+.section-top .section-more {
     margin-left: auto;
     font-weight: 700;
     color: var(--color-secondary);
     line-height: 20px;
 }
 
-.top .more:hover {
+.section-top .section-more:hover {
     opacity: 0.5;
-}
-
-.bookmark {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
 }
 
 footer a:hover {
