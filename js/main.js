@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mainView.initMainBannerSwiper();
     mainView.initRecommendInteriorSwiper();
     mainView.initCartegorySwiper();
+    mainView.initTodayDealSwiper();
+    mainView.todayDealCountDown();
 });
 
 
@@ -298,6 +300,80 @@ const mainView = {
 
             updateNav();
         });
+    },
+
+    initTodayDealSwiper() {
+        const slider = document.querySelector('.today-deal__slider');
+        const nextBtn = slider.querySelector('.swiper-button-next');
+        const prevBtn = slider.querySelector('.swiper-button-prev');
+
+        const perView = 4;
+
+        // 초기화
+        let todayDealSwiper = new Swiper('.today-deal__swiper', {
+            slidesPerView: perView,
+            spaceBetween: 20
+        });
+
+        // 네비게이션 버튼 옵션 없으므로 disabled 직접 넣어주기
+        const updateNav = () => {
+            prevBtn.classList.toggle('disabled', todayDealSwiper.isBeginning);
+            nextBtn.classList.toggle('disabled', todayDealSwiper.isEnd);
+        };
+
+        updateNav();
+
+        // 네비게이션 버튼 옵션 없애고 이벤트 직접 구현
+        // slidesPerView 개수 모자르면 앞 페이지 슬라이드 끌고와서 개수 채우기. 무조건 slidesPerView 개수대로 띄움
+        nextBtn.addEventListener('click', () => {
+            const lastPageStartIdx = todayDealSwiper.slides.length - perView;
+            const nextStartIndex = todayDealSwiper.activeIndex + perView;
+
+            todayDealSwiper.slideTo(
+                Math.min(nextStartIndex, lastPageStartIdx) // 다음 페이지가 마지막 페이지면 lastPageStartIdx로 이동하고 아니면 현재 슬라이드에서 perView 더한 만큼 이동
+            );
+
+            updateNav();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const prevStartIndex = todayDealSwiper.activeIndex - perView;
+
+            todayDealSwiper.slideTo(
+                Math.max(prevStartIndex, 0) // 이전 페이지가 첫 페이지면 0으로 이동하고 아니면 perView 뺀 만큼 이동
+            );
+
+            updateNav();
+        });
+    },
+
+    todayDealCountDown() {
+        const cntDowns = document.querySelectorAll('.today-deal__countdown');
+
+        function updateDealTimer() {
+            const remain = new Date().setHours(24, 0, 0, 0) - Date.now();
+
+            const h = Math.floor(remain / 1000 / 60 / 60);
+            const m = Math.floor(remain / 1000 / 60 % 60);
+            const s = Math.floor(remain / 1000 % 60);
+
+            cntDowns.forEach((cntDown) => {
+                cntDown.textContent = `
+                    ${String(h).padStart(2, '0')}:
+                    ${String(m).padStart(2, '0')}:
+                    ${String(s).padStart(2, '0')}
+                    남음
+                `;
+            });
+        }
+
+        updateDealTimer();
+
+        // 다음 초가 되는 순간에 맞춤
+        setTimeout(() => {
+            updateDealTimer();
+            setInterval(updateDealTimer, 1000);
+        }, 1000 - (Date.now() % 1000));
     }
 
 };

@@ -198,3 +198,37 @@ footer a:hover {
     width: 10px;
     height: 20px;
 }
+
+/* 더보기 슬라이드 */
+.more-slide a {
+    display: inline-block;
+    padding: 6px 16px;
+    text-align: center;
+}
+
+.more-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more-slide a .more-arrow {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background-color: #eaedef;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more-slide a:hover .more-arrow {
+    background-color: #dadde0;
+}
+
+.more-slide a span {
+    font-size: 14px;
+    line-height: 20px;
+}
