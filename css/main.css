@@ -238,59 +238,68 @@ header .write__category ul li p {
     overflow: hidden;
 }
 
-.popular-keyword ol.popular-keyword__rank-list li {
+.popular-keyword .popular-keyword__btn {
+    padding: 6px;
+}
+
+ol.popular-keyword__rank-list li {
     display: flex;
     gap: 5px;
 }
 
-.popular-keyword ol.popular-keyword__rank-list li span {
+ol.popular-keyword__rank-list li span {
     line-height: 20px;
 }
 
-.popular-keyword ol.popular-keyword__rank-list li span.rank {
+ol.popular-keyword__rank-list li span.rank {
     width: 20px;
     font-weight: 700;
     text-align: center;
 }
 
-.popular-keyword ol.popular-keyword__rank-list li span.keyword {
+ol.popular-keyword__rank-list li span.keyword {
     width: 104px;
     white-space: nowrap;
 }
 
-.popular-keyword .popular-keyword__btn {
-    padding: 6px;
-    position: relative;
-    z-index: 201;
-}
-
-.popular-keyword .popular-keyword__panel {
-    position: absolute;
-    top: -28px;
-    right: -24px;
+.popular-keyword__panel {
+    position: fixed;
+    top: 60.3px;
+    right: 36px;
     width: 285px;
     padding: 28px 8px;
     background-color: var(--bg-primary);
     border: 1px solid rgb(218, 221, 224);
     border-radius: 6px;
     box-shadow: rgba(63, 71, 77, 0.2) 0px 4px 10px 0px;
+    z-index: 500;
 
     opacity: 0;
     pointer-events: none;
     transition: 0.2s;
 }
 
-.popular-keyword .popular-keyword__panel.active {
+.popular-keyword__panel.active {
     opacity: 1;
     pointer-events: auto;
     transition: 0s;
 }
 
-.popular-keyword__panel h2 {
+.popular-keyword__panel .panel__header {
     padding-inline: 16px;
+    display: flex;
+    align-items: center;
     margin-bottom: 8px;
+}
+
+.popular-keyword__panel .panel__header h2 {
     font-size: 18px;
     line-height: 30px;
+}
+
+.popular-keyword__panel .panel__header .panel__btn {
+    margin-left: auto;
+    padding: 6px;
 }
 
 .popular-keyword__panel ol.popular-keyword__rank-list li {

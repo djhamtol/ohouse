@@ -60,7 +60,7 @@
                             </ul>
                         </div>
                         <div class="write">
-                            <button type="button" class="write__btn">
+                            <button type="button" aria-expanded="false" class="write__btn">
                                 <span>글쓰기</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" fill="currentColor" viewBox="0 0 480 480" class="css-19b3058">
                                     <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
@@ -150,17 +150,11 @@
                     <div class="popular-keyword__rolling-view">
                         <ol class="popular-keyword__rank-list"></ol>
                     </div>
-                    <div class="popular-keyword__dropdown">
-                        <button type="button" class="popular-keyword__btn" aria-expanded="false" aria-label="인기 검색어 전체 순위">
-                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" fill="currentColor" viewBox="0 0 480 480">
-                                <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
-                            </svg>
-                        </button>
-                        <div class="popular-keyword__panel">
-                            <h2>인기 검색어</h2>
-                            <ol class="popular-keyword__rank-list"></ol>
-                        </div>
-                    </div>
+                    <button type="button" class="popular-keyword__btn" aria-expanded="false" aria-label="인기 검색어 전체 순위 열기">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" fill="currentColor" viewBox="0 0 480 480">
+                            <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -829,5 +823,16 @@
             </div>
         </div>
     </footer>
+    <div class="popular-keyword__panel">
+        <div class="panel__header">
+            <h2>인기 검색어</h2>
+            <button type="button" class="panel__btn" aria-label="인기 검색어 전체 순위 닫기">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" fill="currentColor" viewBox="0 0 480 480">
+                    <path d="M390.959 140.2c7.069-7.755 19.086-8.31 26.841-1.241 7.754 7.069 8.31 19.086 1.241 26.841l-165 181-.342.365a19 19 0 0 1-27.74-.365l-165-181c-7.07-7.755-6.514-19.772 1.241-26.841s19.772-6.514 26.84 1.241L240 305.798z"></path>
+                </svg>
+            </button>
+        </div>
+        <ol class="popular-keyword__rank-list"></ol>
+    </div>
 </body>
 </html>

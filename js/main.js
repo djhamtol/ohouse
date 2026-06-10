@@ -16,14 +16,22 @@ const mainView = {
         const btn = document.querySelector('.write__btn');
         const category = document.querySelector('.write__category');
 
+        const updateAccessibility = () => {
+            const isOpen = category.classList.contains('active');
+
+            btn.setAttribute('aria-expanded', isOpen);
+        };
+
         btn.addEventListener('click', () => {
             category.classList.toggle('active');
+            updateAccessibility();
         });
 
         // 배경 클릭시 닫기
         document.addEventListener('click', (e) => {
             if (!category.contains(e.target) && !btn.contains(e.target)) {
                 category.classList.remove('active');
+                updateAccessibility();
             };
         });
     },
@@ -143,24 +151,26 @@ const mainView = {
     // .popular-keyword__panel 토글
     toggleKeywordPanel() {
         const btn = document.querySelector('.popular-keyword__btn');
+        const panelBtn = document.querySelector('.panel__btn');
         const panel = document.querySelector('.popular-keyword__panel');
 
-        const updateAccessibility = () => {
-            const isOpen = panel.classList.contains('active');
-
-            btn.setAttribute('aria-expanded', isOpen);
-        };
-
+        // 열기
         btn.addEventListener('click', () => {
-            panel.classList.toggle('active');
-            updateAccessibility();
+            panel.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        });
+
+        // 닫기
+        panelBtn.addEventListener('click', () => {
+            panel.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
         });
 
         // 배경 클릭시 닫기
         document.addEventListener('click', (e) => {
             if(!panel.contains(e.target) && !btn.contains(e.target)) {
                 panel.classList.remove('active');
-                updateAccessibility();
+                btn.setAttribute('aria-expanded', 'false');
             };
         });
     },
