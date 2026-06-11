@@ -43,7 +43,6 @@ video,
 canvas,
 svg {
 	display: block;
-	max-width: 100%;
 }
 
 input,
@@ -231,4 +230,10 @@ footer a:hover {
 .more-slide a span {
     font-size: 14px;
     line-height: 20px;
+}
+
+@media (max-width: 1024px) {
+	.container-inline {
+		padding-inline: 40px;
+	}
 }

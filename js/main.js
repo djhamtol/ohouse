@@ -218,12 +218,21 @@ const mainView = {
         const nextBtn = slider.querySelector('.swiper-button-next');
         const prevBtn = slider.querySelector('.swiper-button-prev');
 
-        const perView = 6;
+        // const perView = 6;
 
         // 초기화
         let recommendInteriorSwiper = new Swiper('.recommend-interior__swiper', {
-            slidesPerView: perView,
-            spaceBetween: 20
+            slidesPerView: 2,
+            spaceBetween: 20,
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 4
+                },
+                1024: {
+                    slidesPerView: 6
+                }
+            }
         });
 
         // 네비게이션 버튼 옵션 없으므로 disabled 직접 넣어주기
@@ -237,6 +246,7 @@ const mainView = {
         // 네비게이션 버튼 옵션 없애고 이벤트 직접 구현
         // slidesPerView 개수 모자르면 앞 페이지 슬라이드 끌고와서 개수 채우기. 무조건 slidesPerView 개수대로 띄움
         nextBtn.addEventListener('click', () => {
+            const perView = recommendInteriorSwiper.params.slidesPerView;
             const lastPageStartIdx = recommendInteriorSwiper.slides.length - perView;
             const nextStartIndex = recommendInteriorSwiper.activeIndex + perView;
 
@@ -248,6 +258,7 @@ const mainView = {
         });
 
         prevBtn.addEventListener('click', () => {
+            const perView = recommendInteriorSwiper.params.slidesPerView;
             const prevStartIndex = recommendInteriorSwiper.activeIndex - perView;
 
             recommendInteriorSwiper.slideTo(
