@@ -237,3 +237,9 @@ footer a:hover {
 		padding-inline: 40px;
 	}
 }
+
+@media (max-width: 768px) {
+	.container-inline {
+		padding-inline: 16px;
+	}
+}
