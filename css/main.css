@@ -1,4 +1,5 @@
 /* =============== pc =============== */
+.hambuger,
 header .search-icon--mo {
     display: none;
 }
@@ -222,7 +223,7 @@ header .write__category ul li p {
 }
 
 #lnb ul li a {
-    padding: 16px 10px;
+    padding: 12px 6px;
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
@@ -237,7 +238,7 @@ header .write__category ul li p {
     color: var(--color-secondary);
 }
 
-.popular-keyword {
+.popular-keyword--desktop {
     flex: 0 0 auto;
     position: relative;
     display: flex;
@@ -250,7 +251,7 @@ header .write__category ul li p {
     overflow: hidden;
 }
 
-.popular-keyword .popular-keyword__btn {
+.popular-keyword--desktop .popular-keyword__btn {
     padding: 6px;
 }
 
@@ -445,22 +446,27 @@ main {
 }
 
 .local-nav ul li {
+    min-width: 0;
     flex: 1;
-    text-align: center;
 }
 
 .local-nav ul li a {
+    display: block;
     text-align: center;
 }
 
 .local-nav ul li a img {
+    display: inline;
     width: 100%;
     max-width: 88px;
 }
 
 .local-nav ul li a span {
+    display: block;
+    text-align: center;
     margin-top: 8px;
     line-height: 20px;
+    word-break: normal;
 }
 
 .recommend-interior__slider {
@@ -898,7 +904,8 @@ footer {
 
 /* =============== tb =============== */
 @media (max-width: 1024px) {
-    header .search, header .write__btn svg {
+    header .search, 
+    header .write__btn svg {
         display: none;
     }
 
@@ -965,6 +972,73 @@ footer {
 
 /* =============== mo =============== */
 @media (max-width: 768px) {
+    #gnb,
+    header .util,
+    .popular-keyword--desktop,
+    .main-banner__img,
+    .main-banner__slider .swiper-button-wrap {
+        display: none;
+    }
+
+    .hambuger {
+        display: block;
+    }
+
+    .hd-top__container {
+        padding-block: 7px;
+        position: relative;
+    }
+
+    .hd-top__container.container-inline {
+        padding-inline: 10px;
+    }
+
+    .hambuger {
+        padding: 6px;
+    }
+
+    header .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    header .logo img {
+        height: 26px;
+    }
+
+    .hd-top__layout {
+        flex: 0 1 auto;
+    }
+
+    .hd-bottom {
+        overflow: auto;
+    }
+
+    .hd-bottom__container {
+        width: max-content;
+    }
+
+    #lnb ul {
+        gap: 4px;
+    }
+
+    #lnb ul li a {
+        font-size: 14px;
+        line-height: 18px;
+        padding: 11px 5px;
+    }
+
+    main {
+        margin-top: 114px;
+    }
+
+    .local-nav ul {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
     .footer__container {
         grid-template-columns: 1fr;
     }

@@ -242,4 +242,13 @@ footer a:hover {
 	.container-inline {
 		padding-inline: 16px;
 	}
+
+    .container-block-m {
+	margin-top: 16px;
+    margin-bottom: 20px;
+    }
+
+    .container-block-b {
+        margin-bottom: 20;
+    }
 }
