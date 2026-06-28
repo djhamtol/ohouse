@@ -3,37 +3,41 @@ document.addEventListener('DOMContentLoaded', () => {
     mainView.toggleHeaderBottomScroll();
     mainView.renderKeywordRankList();
     mainView.rollingKeyword();
+    mainView.positionKeywordPanel();
     mainView.toggleKeywordPanel();
     mainView.initMainBannerSwiper();
     mainView.initRecommendInteriorSwiper();
     mainView.initCartegorySwiper();
     mainView.initTodayDealSwiper();
-    mainView.todayDealCountDown();
+    mainView.renderTodayDealCountDown();
+    mainView.toggleMobilePanel();
+    mainView.toggleMobileGnbSub();
 });
 
+const util = {
+    updateExpanded(el , toggle) {
+        const isOpen = el.classList.contains('active');
+
+        toggle.setAttribute('aria-expanded', isOpen);
+    }
+}
 
 const mainView = {
     // .write__category 토글
     toggleWriteCategory() {
-        const btn = document.querySelector('.write__btn');
+        const toggle = document.querySelector('.write__toggle');
         const category = document.querySelector('.write__category');
 
-        const updateAccessibility = () => {
-            const isOpen = category.classList.contains('active');
-
-            btn.setAttribute('aria-expanded', isOpen);
-        };
-
-        btn.addEventListener('click', () => {
+        toggle.addEventListener('click', () => {
             category.classList.toggle('active');
-            updateAccessibility();
+            util.updateExpanded(category, toggle);
         });
 
         // 배경 클릭시 닫기
         document.addEventListener('click', (e) => {
-            if (!category.contains(e.target) && !btn.contains(e.target)) {
+            if (!category.contains(e.target) && !toggle.contains(e.target)) {
                 category.classList.remove('active');
-                updateAccessibility();
+                util.updateExpanded(category, toggle);
             };
         });
     },
@@ -57,19 +61,22 @@ const mainView = {
         header.addEventListener('mouseleave', () => {
             isHovered = false;
 
-            if (wasHideBeforeHover || isscrollDown) hdBottom.classList.add('hide');
+            if (wasHideBeforeHover || isScrollDown) hdBottom.classList.add('hide');
         });
 
         // scroll
         let lastScroll = 0;
-        let isscrollDown = false;
+        let isScrollDown = false;
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.scrollY;
 
-            isscrollDown = currentScroll > lastScroll;
+            isScrollDown = currentScroll > lastScroll;
 
             hdBottom.classList.toggle('hide' , currentScroll > lastScroll && !isHovered); // 스크롤 내리면 숨기기
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                header.classList.toggle('hide' , currentScroll > lastScroll);
+            }
             
             lastScroll = currentScroll;
         });
@@ -78,7 +85,8 @@ const mainView = {
     // .popular-keyword__rank-list 동적 삽입
     renderKeywordRankList() {
         const rollingList = document.querySelector('.popular-keyword__rolling-view .popular-keyword__rank-list');
-        const wholeList = document.querySelector('.popular-keyword__panel .popular-keyword__rank-list');
+        const panelList = document.querySelector('.popular-keyword__panel .popular-keyword__rank-list');
+        const moList = document.querySelector('.popular-keyword--mo .popular-keyword__rank-list');
 
         // 데이터 가공
         const keywordArr = [
@@ -114,8 +122,11 @@ const mainView = {
             </li>
         `;
 
-        // wholeList 렌더링
-        wholeList.innerHTML = innerItems;
+        // panelList 렌더링
+        panelList.innerHTML = innerItems;
+
+        // moList 렌더링 (모바일)
+        moList.innerHTML = innerItems;
     },
 
     // 인기 검색어 루프
@@ -150,11 +161,31 @@ const mainView = {
         });
     },
 
+    // .popular-keyword__panel 배치
+    positionKeywordPanel() {
+        const hdBottom = document.querySelector('.hd-bottom__container');
+        const btn = document.querySelector('.popular-keyword__btn');
+        const panel = document.querySelector('.popular-keyword__panel');
+        const panelBtn = document.querySelector('.panel__btn');
+
+        const updatePosition = () => {
+            const btnRect = btn.getBoundingClientRect();
+            const panelRight = document.documentElement.clientWidth - btnRect.right;
+
+            panel.style.right = `${Math.max(0, panelRight)}px`;
+        };
+
+        updatePosition();
+       
+        window.addEventListener('resize', updatePosition);
+        hdBottom.addEventListener('scroll', updatePosition);
+    },
+
     // .popular-keyword__panel 토글
     toggleKeywordPanel() {
         const btn = document.querySelector('.popular-keyword__btn');
-        const panelBtn = document.querySelector('.panel__btn');
         const panel = document.querySelector('.popular-keyword__panel');
+        const panelBtn = document.querySelector('.panel__btn');
 
         // 열기
         btn.addEventListener('click', () => {
@@ -222,7 +253,7 @@ const mainView = {
 
         // 초기화
         let recommendInteriorSwiper = new Swiper('.recommend-interior__swiper', {
-            slidesPerView: 2,
+            slidesPerView: 2.5,
             spaceBetween: 20,
 
             breakpoints: {
@@ -269,6 +300,7 @@ const mainView = {
         });
     },
 
+    // cartegorySwiper 초기화
     initCartegorySwiper() {
         const slider = document.querySelector('.cartegory__slider');
         const nextBtn = slider.querySelector('.swiper-button-next');
@@ -313,6 +345,7 @@ const mainView = {
         });
     },
 
+    // todayDealSwiper 초기화
     initTodayDealSwiper() {
         const slider = document.querySelector('.today-deal__slider');
         const nextBtn = slider.querySelector('.swiper-button-next');
@@ -323,7 +356,16 @@ const mainView = {
         // 초기화
         let todayDealSwiper = new Swiper('.today-deal__swiper', {
             slidesPerView: perView,
-            spaceBetween: 20
+            spaceBetween: 20,
+
+            breakpoints: {
+                0: {
+                    enabled: false
+                },
+                768: {
+                    enabled: true
+                }
+            }
         });
 
         // 네비게이션 버튼 옵션 없으므로 disabled 직접 넣어주기
@@ -358,7 +400,8 @@ const mainView = {
         });
     },
 
-    todayDealCountDown() {
+    // today-deal__countdown 렌더링
+    renderTodayDealCountDown() {
         const cntDowns = document.querySelectorAll('.today-deal__countdown');
 
         function updateDealTimer() {
@@ -385,6 +428,116 @@ const mainView = {
             updateDealTimer();
             setInterval(updateDealTimer, 1000);
         }, 1000 - (Date.now() % 1000));
-    }
+    },
 
+    // .mobile-panel 토글
+    toggleMobilePanel() {
+        const toggle = document.querySelector('.hamburger');
+        const dim = document.querySelector('.dim');
+        const moPanel = document.querySelector('.mobile-panel');
+        const header = document.querySelector('header');
+
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+        toggle.addEventListener('click', () => {
+            document.body.style.overflow = 'hidden';
+            header.style.paddingRight = `${scrollbarWidth}px`;
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+            dim.classList.add('active');
+
+            moPanel.classList.add('active');
+            util.updateExpanded(moPanel, toggle);
+        });
+
+        // 배경 클릭시 닫기
+        dim.addEventListener('click', () => {
+            document.body.style.overflow = '';
+            header.style.paddingRight = '';
+            document.body.style.paddingRight = '';
+
+            dim.classList.remove('active');
+
+            moPanel.classList.remove('active');
+            util.updateExpanded(moPanel, toggle);
+        });
+    },
+
+    // .gnb__sub 토글
+    toggleMobileGnbSub() {
+        const items = document.querySelectorAll('.gnb__item');
+
+        // 서브 메뉴 열기 함수
+        const openMenu = (item) => {
+            const toggle = item.querySelector('.gnb__toggle');
+            const close = item.querySelector('.close');
+            const open = item.querySelector('.open');
+            const sub = item.querySelector('.gnb__sub');
+
+            item.classList.add('active');
+            util.updateExpanded(item, toggle);
+            close.hidden = false;
+            open.hidden = true;
+
+            gsap.to(sub, {
+                height: "auto",
+                duration: 0.3
+            });
+        };
+
+        // 서브 메뉴 닫기 함수
+        const closeMenu = (item) => {
+            const toggle = item.querySelector('.gnb__toggle');
+            const close = item.querySelector('.close');
+            const open = item.querySelector('.open');
+            const sub = item.querySelector('.gnb__sub');
+
+            item.classList.remove('active');
+            util.updateExpanded(item, toggle);
+            close.hidden = true;
+            open.hidden = false;
+
+            gsap.to(sub, {
+                height: 0,
+                duration: 0.3
+            });
+        };
+
+        items.forEach((item, idx) => {
+            const toggle = item.querySelector('.gnb__toggle');
+            const close = item.querySelector('.gnb__svg .close');
+            const open = item.querySelector('.gnb__svg .open');
+            const sub = item.querySelector('.gnb__sub');
+
+            // 서브메뉴 초기화
+            if (idx === 0) {
+                item.classList.add('active');
+
+                gsap.set(sub, {
+                    height: "auto"
+                });
+            } else {
+                gsap.set(sub, {
+                    height: 0
+                });
+            }
+
+            util.updateExpanded(item, toggle);
+
+            // 서브메뉴 클릭 이벤트
+            toggle.addEventListener('click', () => {
+                const activeItem = document.querySelector('.gnb__item.active');
+
+                if (activeItem) {
+                    closeMenu(activeItem);
+
+                    if (activeItem !== item) {
+                        openMenu(item);
+                    }
+                } else {
+                    openMenu(item);
+                }
+            });
+        });
+    }
 };

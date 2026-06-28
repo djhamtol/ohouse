@@ -98,6 +98,10 @@ strong {
 	outline: 2px solid blue;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 .container-inline {
     max-width: 1256px;
     margin: 0 auto;
@@ -134,15 +138,19 @@ strong {
     line-height: 18px;
 }
 
-.section-top .section-more {
+.section-top .section-more--desktop {
     margin-left: auto;
     font-weight: 700;
     color: var(--color-secondary);
     line-height: 20px;
 }
 
-.section-top .section-more:hover {
+.section-top .section-more--desktop:hover {
     opacity: 0.5;
+}
+
+.section-top .section-more--mo {
+    margin-left: auto;
 }
 
 footer a:hover {
@@ -249,6 +257,6 @@ footer a:hover {
     }
 
     .container-block-b {
-        margin-bottom: 20;
+        margin-block: 0 20px;
     }
 }
