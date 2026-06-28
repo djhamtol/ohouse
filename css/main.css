@@ -627,10 +627,6 @@ main {
     content: none;
 }
 
-.today-deal {
-
-}
-
 .today-deal .today-deal__slider {
     position: relative;
 }
@@ -1172,9 +1168,6 @@ footer {
         height: 1px;
     }
 
-    .mobile-overlay {
-    }
-
     .dim {
         position: fixed;
         inset: 0;
@@ -1207,10 +1200,6 @@ footer {
 
     .mobile-panel.active {
         transform: translateX(0);
-    }
-
-    .mobile-panel__inner {
-
     }
     
     .mobile-panel__group {
