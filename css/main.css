@@ -198,7 +198,7 @@ header .write__category ul li strong {
 
 header .write__category ul li p {
     font-size: 14px;
-    color: #8c8c8c;
+    color: #757575;
     line-height: 20px;
 }
 
@@ -667,7 +667,7 @@ main {
     transform: scale(1.05);
 }
 
-.today-deal__swiper .swiper-slide .today-deal__countDown {
+.today-deal__swiper .swiper-slide .today-deal__countdown {
     position: absolute;
     top: 12px;
     left: 12px;
@@ -693,7 +693,7 @@ main {
 
 .today-deal__swiper .today-deal__desc .today-deal__by {
     font-size: 11px;
-    color: #828c94;
+    color: #757575;
 }
 
 .today-deal__swiper .today-deal__desc h3 {
