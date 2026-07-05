@@ -752,7 +752,7 @@ main {
 }
 
 .today-deal__swiper .today-deal__review .review__cnt {
-    color: #929292;
+    color: #757575;
 }
 
 .today-deal__swiper .today-deal__desc > svg {
@@ -885,7 +885,7 @@ footer {
 .footer__company .company__info li {
     position: relative;
     font-size: 12px;
-    color: #828C99;
+    color: #757575;
     line-height: 20px;
     white-space: nowrap;
 }
@@ -904,7 +904,7 @@ footer {
 
 .footer__company p {
     font-size: 10px;
-    color: #828C99;
+    color: #757575;
     line-height: 14px;
 }
 
