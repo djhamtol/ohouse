@@ -609,24 +609,6 @@ main {
     line-height: 18px;
 }
 
-.cartegory__swiper .swiper-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: -1px;
-    width: 100px;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
-    pointer-events: none;
-    padding: 0px;
-    margin: 0px;
-    z-index: 1;
-}
-
-.cartegory__slider:has(.swiper-button-next.disabled) .cartegory__swiper .swiper-wrapper::after {
-    content: none;
-}
-
 .today-deal .today-deal__slider {
     position: relative;
 }
@@ -1001,8 +983,7 @@ footer {
     .popular-keyword__panel,
     .main-banner__img,
     .swiper-button-wrap,
-    .section-more--desktop,
-    .cartegory__swiper .swiper-wrapper::after {
+    .section-more--desktop {
         display: none;
     }
 

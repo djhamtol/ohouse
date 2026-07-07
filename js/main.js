@@ -42,10 +42,12 @@ const mainView = {
         });
     },
 
-    // 스크롤, 호버시 .hd-bottom 토글
+    // 스크롤, 호버시 헤더 토글
     toggleHeaderBottomScroll() {
         const header = document.querySelector('header');
         const hdBottom = document.querySelector('.hd-bottom');
+
+        const mediaQuery = window.matchMedia('(max-width: 768px)');
 
         // hover
         let isHovered = false;
@@ -65,7 +67,7 @@ const mainView = {
         });
 
         // scroll
-        let lastScroll = 0;
+        let lastScroll = window.scrollY;
         let isScrollDown = false;
 
         window.addEventListener('scroll', () => {
@@ -73,13 +75,26 @@ const mainView = {
 
             isScrollDown = currentScroll > lastScroll;
 
+            // pc & mobile
             hdBottom.classList.toggle('hide' , currentScroll > lastScroll && !isHovered); // 스크롤 내리면 숨기기
-            if (window.matchMedia('(max-width: 768px)').matches) {
+            // mobile
+            if (mediaQuery.matches) { 
                 header.classList.toggle('hide' , currentScroll > lastScroll);
-            }
+            } 
             
             lastScroll = currentScroll;
         });
+
+        // resize
+
+        const updateHeaderState = () => {
+            header.classList.remove('hide');
+            hdBottom.classList.remove('hide');
+        }
+
+        mediaQuery.addEventListener('change', updateHeaderState);
+
+        updateHeaderState();
     },
 
     // .popular-keyword__rank-list 동적 삽입
@@ -249,8 +264,6 @@ const mainView = {
         const nextBtn = slider.querySelector('.swiper-button-next');
         const prevBtn = slider.querySelector('.swiper-button-prev');
 
-        // const perView = 6;
-
         // 초기화
         let recommendInteriorSwiper = new Swiper('.recommend-interior__swiper', {
             slidesPerView: 2.5,
@@ -320,6 +333,8 @@ const mainView = {
 
         updateNav();
 
+        cartegorySwiper.on('transitionEnd', updateNav);
+
         // 네비게이션 버튼 옵션 없애고 이벤트 직접 구현
         // 무조건 한 줄에 슬라이드 꽉 채우기 슬라이드 모자르면 앞 페이지 슬라이드 끌고와서 채우기
         nextBtn.addEventListener('click', () => {
@@ -330,7 +345,6 @@ const mainView = {
                 300
             );
 
-            updateNav();
         });
 
         prevBtn.addEventListener('click', () => {
@@ -341,7 +355,6 @@ const mainView = {
                 300
             );
 
-            updateNav();
         });
     },
 
